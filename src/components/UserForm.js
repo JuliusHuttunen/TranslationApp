@@ -1,9 +1,11 @@
 import { useState } from "react"
 import "../App.css"
 import userStore from "../store/UserStore"
+import { useNavigate } from "react-router-dom";
 
 function UserForm() {
 
+    const navigate = useNavigate();
     const [userName, setUserName] = useState("")
     const handleInputChange = (event) => {
         setUserName(event.target.value)
@@ -13,6 +15,7 @@ function UserForm() {
         //TODO: handle login/register
         console.log(userName)
         console.log(user)
+        navigate('/');
     }
     const store = userStore() 
     store.dispatch({
