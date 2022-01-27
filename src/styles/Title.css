@@ -1,0 +1,14 @@
+.titlecontainer {
+    height: 70px;
+    background-color: #b2c9ab;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.spancontainer {
+    margin-left: 2em;
+}
