@@ -52,5 +52,23 @@
   color: rgba(0, 0, 0, 0.8)
 }
 
+.listcontainer {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #ffffff;
+  display:flex;
+  justify-content: space-around;
+  font-size: 1.5em;
+
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-top: 2px;
+}
+
 
 
