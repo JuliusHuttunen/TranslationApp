@@ -1,7 +1,9 @@
 import { useState } from "react"
 import "../App.css"
-import userStore from "../store/UserStore"
-import { useNavigate } from "react-router-dom";
+import { getUserFromAPI } from "./API/UserAPI"
+import { useNavigate } from "react-router-dom"
+import { login } from "../store/userSlice"
+import { useDispatch } from 'react-redux'
 
 function UserForm() {
 
@@ -10,25 +12,28 @@ function UserForm() {
     const handleInputChange = (event) => {
         setUserName(event.target.value)
     }
+    const dispatch = useDispatch()
 
-    const handleClick = () => {
-        //TODO: handle login/register
-        console.log(userName)
-        console.log(user)
-        navigate('/');
+    const handleUser = async () => {
+        const [error, user] = await getUserFromAPI(userName)
+        console.log("ERR", error)
+        console.log("USER", user)
+        localStorage.setItem('user', JSON.stringify(user))
+        dispatch(login(user))
+        
+    } 
+
+    const handleClick = async () => {
+        await handleUser()
+        navigate('/')
     }
-    const store = userStore() 
-    store.dispatch({
-        type: 'INITUSER'
-    })
-    const [user, setUser] = useState(store.getState())
+
 
     return (
         <div className="form">
             <label className="usernamelabel">Username</label>
             <input className="usernameinput" type="text" placeholder="What's your name?" onChange={handleInputChange} value={userName}></input>
             <button className="usernamebutton" onClick={handleClick}>Confirm</button>
-            <p>{ user.username }</p>
         </div>
     )
 }

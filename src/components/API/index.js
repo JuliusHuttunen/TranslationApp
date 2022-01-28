@@ -1,0 +1,1 @@
+export const url = 'https://noroff-trivia-game-api.herokuapp.com/translations'
