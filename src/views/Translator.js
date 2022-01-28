@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from "../store/userSlice"
 import Title from '../components/Title'
 import LogoutButton from '../components/LogoutButton'
+import Signs from "../components/Signs";
 
 function Translator() {
 
@@ -26,11 +27,18 @@ function Translator() {
     }, [])
 
     return (
+        <>
         <div>
             <Title content="Translator" showProfile="true"/>
             <h1>Translator</h1>
             <button onClick={checkCredentials}>Check credentials</button>
         </div>
+        <div>
+            <input type="text"></input>
+            <button>Translate</button>
+            <Signs />
+        </div>
+        </>
     )
 }
 
