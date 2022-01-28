@@ -9,10 +9,11 @@ function UserForm() {
 
     const navigate = useNavigate();
     const [userName, setUserName] = useState("")
+    const dispatch = useDispatch()
+
     const handleInputChange = (event) => {
         setUserName(event.target.value)
     }
-    const dispatch = useDispatch()
 
     const handleUser = async () => {
         const [error, user] = await getUserFromAPI(userName)
@@ -20,7 +21,6 @@ function UserForm() {
         console.log("USER", user)
         localStorage.setItem('user', JSON.stringify(user))
         dispatch(login(user))
-        
     } 
 
     const handleClick = async () => {

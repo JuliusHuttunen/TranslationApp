@@ -4,7 +4,7 @@ import UserForm from '../components/UserForm';
 function Start () {
     return (
         <>
-            <Title />
+            <Title content="Welcome! Please login below to get started." showProfile="false"/>
             <UserForm />
         </>
     )
