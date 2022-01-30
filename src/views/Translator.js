@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from "../store/userSlice"
@@ -13,13 +13,23 @@ function Translator() {
     const userInfo = useSelector((state) => state.user)
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [translationString, setTranslationString] = useState("");
+    const [inputString, setInputString] = useState("");
 
 
     const checkCredentials = (navigate) => {
-        if (sessionUser === null || userInfo.user === undefined) {
+        if (sessionUser === null || userInfo.user === undefined) {  
             console.log("Redirect to login.")
             navigate('/login')
         }
+    }
+
+    const translate = () => {
+        setTranslationString(inputString)
+    }
+
+    const handleInputChange = (event) => {
+        setInputString(event.target.value);
     }
 
     useEffect(() => {
@@ -34,9 +44,9 @@ function Translator() {
             <button onClick={checkCredentials}>Check credentials</button>
         </div>
         <div>
-            <input type="text"></input>
-            <button>Translate</button>
-            <Signs />
+            <input type="text" onChange={handleInputChange}></input>
+            <button onClick={translate}>Translate</button>
+            <Signs string={translationString}/>
         </div>
         </>
     )
