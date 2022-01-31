@@ -1,10 +1,18 @@
 import '../styles/Header.css'
 import helloLogo from '../resources/Logo-Hello.png'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
+
+    const navigate = useNavigate()
+
+    const navigateToTranslator = () => {
+        navigate('/')
+    }
+    
     return (
         <div className="container">
-            <div className="logo">
+            <div className="logo" onClick={navigateToTranslator}>
                 <span>Lost in translation</span>
                 <img src={helloLogo}></img>
             </div>
