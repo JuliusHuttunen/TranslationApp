@@ -13,6 +13,8 @@ function Profile() {
     const sessionUser = JSON.parse(localStorageValue)
     const userInfo = useSelector((state) => state.user)
     const translations = userInfo.translations
+    const translationsCopy = [...translations]
+    const reverseTranslations = translationsCopy.reverse()
 
     const checkCredentials = () => {
         if (sessionUser === null) {
@@ -24,9 +26,11 @@ function Profile() {
         }
     }
 
-    const translationList = translations.map((translation) => {
-        return(
-            <li>{translation.string}</li>
+    const translationList = reverseTranslations.slice(0, 10).map((translation, index) => {
+        return (
+            <div key={index}>
+                <li>{translation.string}</li>
+            </div>
         )
     }
     )
@@ -34,16 +38,16 @@ function Profile() {
     useEffect(() => {
         checkCredentials()
     }, [])
-    
+
     return (
         <div>
-            <Title content="Profile page" showProfile="true"/>
+            <Title content="Profile page" showProfile="true" />
             <div className="listcontainer">
-            <ol>
-            <h3>Your translations</h3>
-            {translationList}
-            </ol>
-            <div></div>
+                <ol>
+                    <h3>Previous translations</h3>
+                    {translationList}
+                </ol>
+                <div></div>
             </div>
         </div>
     )
