@@ -17,10 +17,13 @@ export const userSlice = createSlice({
             state.username = ""
             state.translations = []
             state.id = ""
+        },
+        addTranslation: (state, action) => {
+            state.translations.push(action.payload);
         }
     },
 })
 
-export const { login, logout } = userSlice.actions
+export const { login, logout, addTranslation} = userSlice.actions
 
 export default userSlice.reducer

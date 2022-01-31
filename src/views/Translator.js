@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from "../store/userSlice"
+import { addTranslation } from "../store/userSlice"
 import Title from '../components/Title'
 import LogoutButton from '../components/LogoutButton'
 import Signs from "../components/Signs";
+import { updateTranslationsApi } from "../components/API/UserAPI";
 
 function Translator() {
+    
 
     const localStorageValue = localStorage.getItem('user')
     const sessionUser = JSON.parse(localStorageValue)
@@ -24,8 +26,24 @@ function Translator() {
         }
     }
 
-    const translate = () => {
-        setTranslationString(inputString)
+    const translate = async () => {
+        setTranslationString(inputString);
+
+        if (!checkForDuplicate(inputString))
+            return;
+            
+        const translations = [...userInfo.translations];
+        const translationObject = {string: inputString, deleted: false};
+        translations.push(translationObject);
+
+        dispatch(addTranslation(translationObject));
+        await updateTranslationsApi(userInfo.id, translations);
+    }
+
+    const checkForDuplicate = (string) => {
+        if (userInfo.translations.every( x => x.string !== string))
+            return true;
+        return false;
     }
 
     const handleInputChange = (event) => {
