@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { login } from "../store/userSlice"
 import Title from "../components/Title";
+import DeleteButton from "../components/DeleteButton";
 import "../App.css"
 import Signs from "../components/Signs";
 
@@ -59,6 +60,9 @@ function Profile() {
                 <div className="profilecontainer">
                     <div className="profilegridcontainer">
                         {translationList}
+                    </div>
+                    <div>
+                      <DeleteButton strings={reverseTranslations.slice(0, 10)}/>
                     </div>
                 </div>
             </div>

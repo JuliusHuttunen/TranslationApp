@@ -20,10 +20,13 @@ export const userSlice = createSlice({
         },
         addTranslation: (state, action) => {
             state.translations.push(action.payload);
+        },
+        updateTranslations: (state, action) => {
+            state.translations = action.payload;
         }
     },
 })
 
-export const { login, logout, addTranslation} = userSlice.actions
+export const { login, logout, addTranslation, updateTranslations} = userSlice.actions
 
 export default userSlice.reducer
