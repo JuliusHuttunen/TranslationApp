@@ -5,16 +5,18 @@ export const userSlice = createSlice({
     initialState: {
         username: "",
         translations: [],
+        id: ""
     },
     reducers: {
         login: (state, action) => {
-            state.user = action.payload
+            state.username = action.payload.username
+            state.translations = action.payload.translations
+            state.id = action.payload.id
         },
         logout: (state) => {
-            state.user = {
-                username: "",
-                translations: []
-            }
+            state.username = ""
+            state.translations = []
+            state.id = ""
         }
     },
 })

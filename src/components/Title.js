@@ -9,10 +9,6 @@ function Title(props) {
     const userInfo = useSelector((state) => state.user)
     const navigate = useNavigate()
 
-    const getuser = () => {
-        console.log(userInfo.user)
-    }
-
     const toProfile = () => {
         navigate('/profile')
     }
@@ -23,9 +19,8 @@ function Title(props) {
             <div className='titlecontainer'>
                 <div className='spancontainer'>
                     <span className='title'>{content}</span>
-                    <button onClick={getuser}>get user info</button>
                 </div>
-                <div className='profiletitlewrapper'><span onClick={toProfile} className='profiletitle'>You are logged in as {userInfo.user.username}.</span>
+                <div className='profiletitlewrapper'><span onClick={toProfile} className='profiletitle'>You are logged in as {userInfo.username}.</span>
                 <LogoutButton />
                 </div>
             </div>

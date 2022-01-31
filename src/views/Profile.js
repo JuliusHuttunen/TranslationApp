@@ -14,7 +14,7 @@ function Profile() {
     const userInfo = useSelector((state) => state.user)
 
     const checkCredentials = () => {
-        if (sessionUser === null || userInfo.user === undefined) {
+        if (sessionUser === null) {
             console.log("Redirect to login.")
             navigate('/login')
         }

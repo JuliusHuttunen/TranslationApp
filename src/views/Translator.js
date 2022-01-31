@@ -18,7 +18,7 @@ function Translator() {
 
 
     const checkCredentials = (navigate) => {
-        if (sessionUser === null || userInfo.user === undefined) {  
+        if (sessionUser === null) {  
             console.log("Redirect to login.")
             navigate('/login')
         }
@@ -41,7 +41,6 @@ function Translator() {
         <div>
             <Title content="Translator" showProfile="true"/>
             <h1>Translator</h1>
-            <button onClick={checkCredentials}>Check credentials</button>
         </div>
         <div>
             <input type="text" onChange={handleInputChange}></input>
