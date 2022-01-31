@@ -5,6 +5,7 @@ import { logout, login, addTranslation } from "../store/userSlice"
 import Title from '../components/Title'
 import LogoutButton from '../components/LogoutButton'
 import Signs from "../components/Signs";
+import '../App.css'
 import { updateTranslationsApi } from "../components/API/UserAPI";
 
 function Translator() {
@@ -20,7 +21,7 @@ function Translator() {
 
 
     const checkCredentials = (navigate) => {
-        if (sessionUser === null) {  
+        if (sessionUser === null) {
             console.log("Redirect to login.")
             navigate('/login')
         }
@@ -59,15 +60,28 @@ function Translator() {
 
     return (
         <>
-        <div>
-            <Title content="Translator" showProfile="true"/>
-            <h1>Translator</h1>
-        </div>
-        <div>
-            <input type="text" onChange={handleInputChange}></input>
-            <button onClick={translate}>Translate</button>
-            <Signs string={translationString}/>
-        </div>
+            <div>
+                <Title content="Translator" showProfile="true" />
+            </div>
+            <div className="translatorwrapper">
+                <div className="translatorlabelwrapper">
+                    <span className="translatorinputlabel">Input</span>
+                    <div className="translatorinputwrapper">
+                        <input type="text" onChange={handleInputChange} className="translatorinput" placeholder="Translate..."></input>
+                        <button onClick={translate} className="translatorbutton">Run</button>
+                    </div>
+                </div>
+                <div className="signswrapper">
+                    <div className="signsbackdrop">
+                        <div className="signs">
+                        <Signs string={translationString} />
+                        </div>
+                        <div className="translatoroutputbackdrop">
+                            <span className="translatoroutput">Output</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
