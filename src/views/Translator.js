@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from "../store/userSlice"
+import { logout, login } from "../store/userSlice"
 import Title from '../components/Title'
 import LogoutButton from '../components/LogoutButton'
 import Signs from "../components/Signs";
@@ -21,6 +21,9 @@ function Translator() {
         if (sessionUser === null) {  
             console.log("Redirect to login.")
             navigate('/login')
+        }
+        else {
+            dispatch(login(sessionUser))
         }
     }
 
