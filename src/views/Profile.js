@@ -16,6 +16,7 @@ function Profile() {
     const translations = userInfo.translations
     const translationsCopy = [...translations]
     const reverseTranslations = translationsCopy.reverse()
+    let threshold = 0
 
     const checkCredentials = () => {
         if (sessionUser === null) {
@@ -27,15 +28,21 @@ function Profile() {
         }
     }
 
-    const translationList = reverseTranslations.slice(0, 10).map((translation, index) => {
-        return (
-            <div key={index} className="profiletranslationwrapper">
-                <span>{index + 1}. {translation.string}</span>
-                <div className="imgwrapper">
-                    <Signs string={translation.string} />
+    const translationList = reverseTranslations.map((translation, index) => {
+        if (!translation.deleted && threshold < 10) {
+            threshold++
+            return (
+                <div key={index} className="profiletranslationwrapper">
+                    <span>{threshold}. {translation.string}</span>
+                    <div className="imgwrapper">
+                        <Signs string={translation.string} />
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        else {
+            return
+        }
     }
     )
 
