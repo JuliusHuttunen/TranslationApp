@@ -5,6 +5,7 @@ import { login } from "../store/userSlice"
 import Title from "../components/Title";
 import DeleteButton from "../components/DeleteButton";
 import "../App.css"
+import Signs from "../components/Signs";
 
 function Profile() {
 
@@ -16,6 +17,7 @@ function Profile() {
     const translations = userInfo.translations
     const translationsCopy = [...translations]
     const reverseTranslations = translationsCopy.reverse()
+    let threshold = 0
 
     const checkCredentials = () => {
         if (sessionUser === null) {
@@ -27,14 +29,24 @@ function Profile() {
         }
     }
 
-    const translationList = reverseTranslations.slice(0, 10).map((translation, index) => {
-        return (
-            <div key={index}>
-                <li>{translation.string}</li>
-            </div>
-        )
+    const translationList = reverseTranslations.map((translation, index) => {
+        if (!translation.deleted && threshold < 10) {
+            threshold++
+            return (
+                <div key={index} className="profiletranslationwrapper">
+                    <span>{threshold}. {translation.string}</span>
+                    <div className="imgwrapper">
+                        <Signs string={translation.string} />
+                    </div>
+                </div>
+            )
+        }
+        else {
+            return
+        }
     }
     )
+
 
     useEffect(() => {
         checkCredentials()
@@ -43,13 +55,15 @@ function Profile() {
     return (
         <div>
             <Title content="Profile page" showProfile="true" />
-            <div className="listcontainer">
-                <ol>
-                    <h3>Previous translations</h3>
-                    {translationList}
-                </ol>
-                <div>
-                    <DeleteButton strings={reverseTranslations.slice(0, 10)}/>
+            <div className="profilepagebackdrop">
+                <h3>Previous translations</h3>
+                <div className="profilecontainer">
+                    <div className="profilegridcontainer">
+                        {translationList}
+                    </div>
+                    <div>
+                      <DeleteButton strings={reverseTranslations.slice(0, 10)}/>
+                    </div>
                 </div>
             </div>
         </div>
