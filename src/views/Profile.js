@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { login } from "../store/userSlice"
 import Title from "../components/Title";
 import "../App.css"
+import Signs from "../components/Signs";
 
 function Profile() {
 
@@ -28,12 +29,16 @@ function Profile() {
 
     const translationList = reverseTranslations.slice(0, 10).map((translation, index) => {
         return (
-            <div key={index}>
-                <li>{translation.string}</li>
+            <div key={index} className="profiletranslationwrapper">
+                <span>{index + 1}. {translation.string}</span>
+                <div className="imgwrapper">
+                    <Signs string={translation.string} />
+                </div>
             </div>
         )
     }
     )
+
 
     useEffect(() => {
         checkCredentials()
@@ -42,12 +47,13 @@ function Profile() {
     return (
         <div>
             <Title content="Profile page" showProfile="true" />
-            <div className="listcontainer">
-                <ol>
-                    <h3>Previous translations</h3>
-                    {translationList}
-                </ol>
-                <div></div>
+            <div className="profilepagebackdrop">
+                <h3>Previous translations</h3>
+                <div className="profilecontainer">
+                    <div className="profilegridcontainer">
+                        {translationList}
+                    </div>
+                </div>
             </div>
         </div>
     )
