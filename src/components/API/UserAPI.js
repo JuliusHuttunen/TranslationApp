@@ -19,7 +19,7 @@ export async function getUserFromAPI(userName) {
             }
         }
         return registerUserAPI(userName)
-        
+
     }
     catch (error) {
         return [error.message, null]
@@ -49,5 +49,31 @@ export async function registerUserAPI(userName) {
     }
     catch (error) {
         return [error.message, null]
+    }
+}
+
+export async function updateTranslationsApi(userId, translations) {
+    console.log("User Id: ",userId);
+    console.log("Translation before sending to api",translations);
+    try {
+        const config = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-KEY": APIKEY
+            },
+            body: JSON.stringify(
+                {
+                    translations: translations, 
+                }
+            )
+        };
+        const response = await fetch(`${url}/${userId}`, config);
+        const data = await response.json();
+        console.log("Translation update: ",[null, data])
+        return [null, data];
+    }
+    catch (error) {
+        return [error.message, null];
     }
 }
