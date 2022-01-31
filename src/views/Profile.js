@@ -7,13 +7,12 @@ import "../App.css"
 
 function Profile() {
 
-    const translations = ["Hello", "Hey", "Hello", "Hey", "Hello", "Hey", "Hello", "Hey", "Hello", "Hey"]
-
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const localStorageValue = localStorage.getItem('user')
     const sessionUser = JSON.parse(localStorageValue)
     const userInfo = useSelector((state) => state.user)
+    const translations = userInfo.translations
 
     const checkCredentials = () => {
         if (sessionUser === null) {
@@ -27,7 +26,7 @@ function Profile() {
 
     const translationList = translations.map((translation) => {
         return(
-            <li>{translation}</li>
+            <li>{translation.string}</li>
         )
     }
     )

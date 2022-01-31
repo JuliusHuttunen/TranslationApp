@@ -39,8 +39,12 @@ function Translator() {
         const translations = [...userInfo.translations];
         const translationObject = {string: inputString, deleted: false};
         translations.push(translationObject);
-
         dispatch(addTranslation(translationObject));
+        localStorage.setItem('user', JSON.stringify({
+            username: userInfo.username,
+            translations: [...userInfo.translations, translationObject],
+            id: userInfo.id
+        }))
         await updateTranslationsApi(userInfo.id, translations);
     }
 
