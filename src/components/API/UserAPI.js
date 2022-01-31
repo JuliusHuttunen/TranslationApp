@@ -53,8 +53,6 @@ export async function registerUserAPI(userName) {
 }
 
 export async function updateTranslationsApi(userId, translations) {
-    console.log("User Id: ",userId);
-    console.log("Translation before sending to api",translations);
     try {
         const config = {
             method: "PATCH",

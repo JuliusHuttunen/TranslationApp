@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { login } from "../store/userSlice"
 import Title from "../components/Title";
+import DeleteButton from "../components/DeleteButton";
 import "../App.css"
 
 function Profile() {
@@ -47,7 +48,9 @@ function Profile() {
                     <h3>Previous translations</h3>
                     {translationList}
                 </ol>
-                <div></div>
+                <div>
+                    <DeleteButton strings={reverseTranslations.slice(0, 10)}/>
+                </div>
             </div>
         </div>
     )
