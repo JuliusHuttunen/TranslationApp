@@ -14,12 +14,12 @@ function DeleteButton(props) {
             const index = modifiedTranslations.findIndex(x => x.string === entry.string);
             if (index !== -1)
             {
-                console.log(modifiedTranslations[index]);
-                console.log(modifiedTranslations[index].deleted);
-                modifiedTranslations[index].deleted = true;
+                modifiedTranslations[index] = {
+                    string: modifiedTranslations[index].string,
+                    deleted: true 
+                };
             }
         }
-        console.log("Modified translations: ", modifiedTranslations);
         localStorage.setItem('user', JSON.stringify({
             username: userInfo.username,
             translations: modifiedTranslations,
@@ -27,9 +27,7 @@ function DeleteButton(props) {
         }));
         dispatch(updateTranslations(modifiedTranslations));
         await updateTranslationsApi(userInfo.id, modifiedTranslations);
-
     }
-
     return (
         <>
             <button onClick={deleteTranslation}>Delete</button>
