@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-[[A Noroff Full Stack Assignment 3 - A React app that translates text to sign language
+## Noroff Full Stack Assignment 3 - A React app that translates text to sign language
 
 This project is an iteration of the main assignment in Noroff Fullstack bootcamp's React module. The user can login, and translate strings into sign language gestures. User and the translations are saved into API, Redux store and browser's local storage. Local storage is used to handle the user session, which enables the user to continue the session even after closing the app. Logging out clears local storage items and redux. These are still stored in the API.
 
