@@ -37,7 +37,7 @@ function Profile() {
                     <span>{threshold}. {translation.string}</span>
                     <div className="imgwrapper">
                         <Signs string={translation.string} />
-                        <DeleteButton content="Delete" translations={[translation]}/>
+                        <DeleteButton content="Delete" translations={[translation]} onClick={threshold - 1}/>
                     </div>
                     
                 </div>
@@ -54,6 +54,7 @@ function Profile() {
         checkCredentials()
     }, [])
 
+    if(threshold !== 0){
     return (
         <div>
             <Title content="Profile page" showProfile="true" />
@@ -64,12 +65,28 @@ function Profile() {
                         {translationList}
                     </div>
                     <div>
-                      <DeleteButton content="Delete all translations" translations={reverseTranslations}/>
+                      <DeleteButton content="Delete all translations" translations={reverseTranslations} onClick={threshold = 0}/>
                     </div>
                 </div>
             </div>
         </div>
     )
+    }
+    else{
+        return (
+            <div>
+                <Title content="Profile page" showProfile="true" />
+                <div className="profilepagebackdrop">
+                    <h3>You have no translations yet.</h3>
+                    <div className="profilecontainer">
+                        <div className="profilegridcontainer">
+                            {translationList}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+        }
 }
 
 export default Profile;

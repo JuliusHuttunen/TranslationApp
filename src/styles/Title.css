@@ -19,6 +19,7 @@
 
 .profiletitle{
     padding-top: 0.3em;
+    cursor: pointer;
 }
 
 .profiletitlewrapper {
@@ -38,6 +39,7 @@
     margin-left: 1em;
     height: 2em;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .logoutbutton:hover {
