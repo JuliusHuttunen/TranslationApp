@@ -38,6 +38,7 @@ function Profile() {
                     <div className="imgwrapper">
                         <Signs string={translation.string} />
                     </div>
+                    <DeleteButton translations={[translation]}/>
                 </div>
             )
         }

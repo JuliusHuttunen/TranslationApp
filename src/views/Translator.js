@@ -31,11 +31,7 @@ function Translator() {
     }
 
     const translate = async () => {
-        setTranslationString(inputString);
-
-        if (!checkForDuplicate(inputString))
-            return;
-            
+        setTranslationString(inputString);   
         const translations = [...userInfo.translations];
         const translationObject = {string: inputString, deleted: false};
         translations.push(translationObject);
@@ -46,12 +42,6 @@ function Translator() {
             id: userInfo.id
         }))
         await updateTranslationsApi(userInfo.id, translations);
-    }
-
-    const checkForDuplicate = (string) => {
-        if (userInfo.translations.every( x => x.string !== string))
-            return true;
-        return false;
     }
 
     const handleInputChange = (event) => {

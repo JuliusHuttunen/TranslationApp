@@ -10,7 +10,7 @@ function DeleteButton(props) {
     const deleteTranslation = async () => {
         let modifiedTranslations = [...userInfo.translations];
 
-        for (const entry of props.strings) {
+        for (const entry of props.translations) {
             const index = modifiedTranslations.findIndex(x => x.string === entry.string);
             if (index !== -1)
             {
