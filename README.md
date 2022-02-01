@@ -4,12 +4,23 @@
 
 ## Noroff Full Stack Assignment 3 - A React app that translates text to sign language
 
-This project is an iteration of the main assignment in Noroff Fullstack bootcamp's React module. The user can login, and translate strings into sign language gestures. User and the translations are saved into API, Redux store and browser's local storage. Local storage is used to handle the user session, which enables the user to continue the session even after closing the app. Logging out clears local storage items and redux. These are still stored in the API.
+This project is an iteration of the main assignment in Noroff Fullstack bootcamp's React module.
+
+The user can login, and translate strings into sign language gestures. 
+
+User and the translations are saved into API, Redux store and browser's local storage.
+
+Local storage is used to handle the user session, which enables the user to continue the session even after closing the app. 
+
+Logging out clears local storage and Redux store items.
+
+All of the information can still be retrieved from the API for further use.
 
 ## Table of Contents
 
 - [Install](#install)
 - [Usage](#usage)
+- [UI Concept](#ui-concept)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
@@ -37,6 +48,10 @@ In app root directory
 ```
 npm start
 ```
+
+## UI Concept
+
+![uiconcept](./src/resources/uiconcept.png)
 
 ## Maintainers
 
