@@ -33,7 +33,7 @@ function Translator() {
     const translate = async () => {
         setTranslationString(inputString);   
         const translations = [...userInfo.translations];
-        const translationObject = {string: inputString, deleted: false};
+        const translationObject = {string: inputString, deleted: false, id: translations.length};
         translations.push(translationObject);
         dispatch(addTranslation(translationObject));
         localStorage.setItem('user', JSON.stringify({
