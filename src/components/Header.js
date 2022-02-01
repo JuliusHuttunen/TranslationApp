@@ -18,7 +18,7 @@ function Header() {
             </div>
             <div className="contributor">
                 <span><a href="https://github.com/JuliusHuttunen">@JuliusHuttunen</a></span>
-                <span><a href="https://github.com/Azruim">@Azruim</a></span>
+                <span><a href="https://github.com/Azruim">@Azruim (Nico Behnen)</a></span>
             </div>
         </div>
     )

@@ -37,8 +37,9 @@ function Profile() {
                     <span>{threshold}. {translation.string}</span>
                     <div className="imgwrapper">
                         <Signs string={translation.string} />
+                        <DeleteButton content="Delete" translations={[translation]}/>
                     </div>
-                    <DeleteButton translations={[translation]}/>
+                    
                 </div>
             )
         }
@@ -63,7 +64,7 @@ function Profile() {
                         {translationList}
                     </div>
                     <div>
-                      <DeleteButton strings={reverseTranslations.slice(0, 10)}/>
+                      <DeleteButton content="Delete all translations" strings={reverseTranslations}/>
                     </div>
                 </div>
             </div>

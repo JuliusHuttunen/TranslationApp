@@ -7,6 +7,8 @@ function DeleteButton(props) {
     const userInfo = useSelector((state) => state.user);
     const dispatch = useDispatch()
 
+    const content = props.content
+
     const deleteTranslation = async () => {
         let modifiedTranslations = [...userInfo.translations];
 
@@ -30,7 +32,7 @@ function DeleteButton(props) {
     }
     return (
         <>
-            <button onClick={deleteTranslation}>Delete</button>
+            <button onClick={deleteTranslation} className="deletebutton"> {content} </button>
         </>
     )
 }
