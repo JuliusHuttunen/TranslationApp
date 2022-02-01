@@ -63,7 +63,7 @@ function Profile() {
                         {translationList}
                     </div>
                     <div>
-                      <DeleteButton strings={reverseTranslations.slice(0, 10)}/>
+                      <DeleteButton translations={reverseTranslations}/>
                     </div>
                 </div>
             </div>
