@@ -27,6 +27,6 @@ export const userSlice = createSlice({
     },
 })
 
-export const { login, logout, addTranslation, updateTranslations} = userSlice.actions
+export const { login, logout, addTranslation, updateTranslations } = userSlice.actions
 
 export default userSlice.reducer

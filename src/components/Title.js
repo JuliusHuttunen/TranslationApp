@@ -13,7 +13,6 @@ function Title(props) {
         navigate('/profile')
     }
 
-
     if (props.showProfile === "true") {
         return (
             <div className='titlecontainer'>
@@ -21,7 +20,7 @@ function Title(props) {
                     <span className='title'>{content}</span>
                 </div>
                 <div className='profiletitlewrapper'><span onClick={toProfile} className='profiletitle'>You are logged in as {userInfo.username}.</span>
-                <LogoutButton />
+                    <LogoutButton />
                 </div>
             </div>
         )

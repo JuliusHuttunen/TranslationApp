@@ -17,17 +17,14 @@ function UserForm() {
 
     const handleUser = async () => {
         const [error, user] = await getUserFromAPI(userName)
-        console.log("ERR", error)
-        console.log("USER", user)
         localStorage.setItem('user', JSON.stringify(user))
         dispatch(login(user))
-    } 
+    }
 
     const handleClick = async () => {
         await handleUser()
         navigate('/')
     }
-
 
     return (
         <div className="form">

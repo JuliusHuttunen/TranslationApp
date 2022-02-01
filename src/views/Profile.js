@@ -21,7 +21,6 @@ function Profile() {
 
     const checkCredentials = () => {
         if (sessionUser === null) {
-            console.log("Redirect to login.")
             navigate('/login')
         }
         else {
@@ -37,42 +36,39 @@ function Profile() {
                     <span>{threshold}. {translation.string}</span>
                     <div className="imgwrapper">
                         <Signs string={translation.string} />
-                        <DeleteButton content="Delete" translations={[translation]} onClick={threshold - 1}/>
+                        <DeleteButton content="Delete" translations={[translation]} onClick={threshold - 1} />
                     </div>
-                    
                 </div>
             )
         }
         else {
             return
         }
-    }
-    )
-
+    })
 
     useEffect(() => {
         checkCredentials()
     }, [])
 
-    if(threshold !== 0){
-    return (
-        <div>
-            <Title content="Profile page" showProfile="true" />
-            <div className="profilepagebackdrop">
-                <h3>Previous translations</h3>
-                <div className="profilecontainer">
-                    <div className="profilegridcontainer">
-                        {translationList}
-                    </div>
-                    <div>
-                      <DeleteButton content="Delete all translations" translations={reverseTranslations} onClick={threshold = 0}/>
+    if (threshold !== 0) {
+        return (
+            <div>
+                <Title content="Profile page" showProfile="true" />
+                <div className="profilepagebackdrop">
+                    <h3>Previous translations</h3>
+                    <div className="profilecontainer">
+                        <div className="profilegridcontainer">
+                            {translationList}
+                        </div>
+                        <div>
+                            <DeleteButton content="Delete all translations" translations={reverseTranslations} onClick={threshold = 0} />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
     }
-    else{
+    else {
         return (
             <div>
                 <Title content="Profile page" showProfile="true" />
@@ -86,7 +82,7 @@ function Profile() {
                 </div>
             </div>
         )
-        }
+    }
 }
 
 export default Profile;

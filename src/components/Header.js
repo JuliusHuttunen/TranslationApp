@@ -9,7 +9,7 @@ function Header() {
     const navigateToTranslator = () => {
         navigate('/')
     }
-    
+
     return (
         <div className="container">
             <div className="logo" onClick={navigateToTranslator}>

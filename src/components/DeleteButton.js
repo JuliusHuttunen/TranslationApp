@@ -6,7 +6,6 @@ function DeleteButton(props) {
 
     const userInfo = useSelector((state) => state.user);
     const dispatch = useDispatch()
-
     const content = props.content
 
     const deleteTranslation = async () => {
@@ -14,11 +13,10 @@ function DeleteButton(props) {
 
         for (const entry of props.translations) {
             const index = modifiedTranslations.findIndex(x => x.id === entry.id);
-            if (index !== -1)
-            {
+            if (index !== -1) {
                 modifiedTranslations[index] = {
                     string: modifiedTranslations[index].string,
-                    deleted: true 
+                    deleted: true
                 };
             }
         }

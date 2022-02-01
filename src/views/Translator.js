@@ -10,7 +10,6 @@ import { updateTranslationsApi } from "../components/API/UserAPI";
 
 function Translator() {
     
-
     const localStorageValue = localStorage.getItem('user')
     const sessionUser = JSON.parse(localStorageValue)
     const userInfo = useSelector((state) => state.user)
@@ -19,10 +18,8 @@ function Translator() {
     const [translationString, setTranslationString] = useState("");
     const [inputString, setInputString] = useState("");
 
-
     const checkCredentials = (navigate) => {
         if (sessionUser === null) {
-            console.log("Redirect to login.")
             navigate('/login')
         }
         else {

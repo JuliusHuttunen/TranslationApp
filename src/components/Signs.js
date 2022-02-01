@@ -147,7 +147,7 @@ function Signs(props) {
         const converted = []
         for (let i = 0; i < string.length; i++) {
             const letter = string[i].toLowerCase();
-            
+
             if (signs.filter(x => x.letter === letter).length > 0) {
                 const index = signs.findIndex(x => x.letter === letter);
                 converted.push(signs[index]);

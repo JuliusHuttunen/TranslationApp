@@ -12,7 +12,6 @@ export async function getUserFromAPI(userName) {
         }
         const response = await fetch(`${url}`, config)
         const data = await response.json()
-        console.log(userName)
         for (let user of data) {
             if (user.username.toLowerCase() === userName.toLowerCase()) {
                 return [null, user]
@@ -44,7 +43,6 @@ export async function registerUserAPI(userName) {
         }
         const response = await fetch(`${url}`, config)
         const data = await response.json()
-        console.log([null, data])
         return [null, data]
     }
     catch (error) {
@@ -62,13 +60,12 @@ export async function updateTranslationsApi(userId, translations) {
             },
             body: JSON.stringify(
                 {
-                    translations: translations, 
+                    translations: translations,
                 }
             )
         };
         const response = await fetch(`${url}/${userId}`, config);
         const data = await response.json();
-        console.log("Translation update: ",[null, data])
         return [null, data];
     }
     catch (error) {
